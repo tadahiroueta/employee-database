@@ -15,6 +15,10 @@ public class DatabaseTester {
 		System.out.println(set); //should show only Ron the array
 
 		set.add(new Employee("Charlie", 222222));
+		set.add(new Employee("CharliE", 222222));
+		set.add(new Employee("CharliEE", 222222));
+		set.add(new Employee("CharliEe", 222222));
+		set.add(new Employee("CharlieE", 222222));
 		System.out.println(set); //should show Charlie and Ron in the array
 
 		System.out.println(set.add(new Employee("Charlie", 222222))); //should print false

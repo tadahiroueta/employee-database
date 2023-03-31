@@ -13,8 +13,9 @@ public class EmployeeDatabase {
     public int size() { return size; }
 
     public boolean add(Employee key) {
-        for (int i = key.hashCode(tableSize); i < tableSize; i++) {
-            int theRealI = i % tableSize;
+        int code = key.hashCode(tableSize);
+        for (int i = 0; i < tableSize; i++) {
+            int theRealI = (code + i * i) % tableSize;
             Employee servant = set[theRealI];
             if (servant == null) {
                 set[theRealI] = key;
@@ -27,8 +28,9 @@ public class EmployeeDatabase {
     }
 
     public boolean contains(Employee key) {
-        for (int i = key.hashCode(tableSize); i < tableSize; i++) {
-            int theRealI = i % tableSize;
+        int code = key.hashCode(tableSize);
+        for (int i = 0; i < tableSize; i++) {
+            int theRealI = (code + i * i) % tableSize;
 
             if (set[theRealI] == null) break;
             if (set[theRealI].equals(key)) return true;
@@ -37,8 +39,9 @@ public class EmployeeDatabase {
     }
 
     private boolean justRemove(Employee key) {
-        for (int i = key.hashCode(tableSize); i < tableSize; i++) {
-            int theRealI = i % tableSize;
+        int code = key.hashCode(tableSize);
+        for (int i = 0; i < tableSize; i++) {
+            int theRealI = (code + i) % tableSize;
             if (set[theRealI] == null) break;
 
             if (set[theRealI].equals(key)) {
